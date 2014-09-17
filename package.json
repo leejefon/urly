@@ -1,10 +1,10 @@
 {
-  "name": "Leejefon",
-  "description": "My Homepage",
+  "name": "Urly",
+  "description": "Urly",
   "author": "Jeff Lee",
   "version": "0.1.0",
   "private": true,
-  "repository": "https://github.com/leejefon/leejefon",
+  "repository": "git://git@heroku.com:urly.git",
   "main": "app.js",
   "license": "",
   "engines": {

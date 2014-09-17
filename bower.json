@@ -1,13 +1,13 @@
 {
-  "name": "Leejefon",
+  "name": "Urly",
   "version": "0.1.0",
   "authors": [
     "Jeff Lee <leejefon@gmail.com>"
   ],
-  "description": "My Homepage",
+  "description": "Urly",
   "main": "app.js",
   "license": "MIT",
-  "homepage": "https://jefflee.net",
+  "homepage": "http://urly.cc",
   "private": true,
   "ignore": [
     "**/.*",

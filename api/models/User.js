@@ -1,5 +1,5 @@
 /**
- * Resume
+ * User
  *
  * @module      :: Model
  * @description ::

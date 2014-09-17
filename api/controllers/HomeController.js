@@ -9,12 +9,12 @@
 
 module.exports = (function(){
 
-	function resume (req, res) {
+	function index (req, res) {
 		return res.view();
 	}
 
     return {
-        resume: resume,
+        index: index,
 
         _config: {}
     };
