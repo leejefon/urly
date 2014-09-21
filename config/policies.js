@@ -19,6 +19,21 @@
 
 module.exports.policies = {
 
-    '*': true
+    '*': true,
+
+    HomeController: {
+
+    },
+
+    UserController: {
+        get: ['isAuthenticated'],
+        update: ['isAuthenticated']
+    },
+
+    OAuthController: {
+        authorize: ['isAuthenticated', 'OAuthAuthorization'],
+        decision: ['isAuthenticated', 'OAuthDecision'],
+        token: ['isOAuthAuthenticated', 'OAuthToken', 'OAuthErrorHandler']
+    }
 
 };

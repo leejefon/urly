@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var less = require('gulp-less');
 var minifyCSS = require('gulp-cssmin');
 var rjs = require('gulp-requirejs');
 var uglifyJs = require('gulp-uglify');
@@ -12,7 +11,6 @@ var paths = {
 		'!assets/js/angular/*.js',
 		'!assets/js/angular/*/*.js',
 		'!assets/styles/*.css',
-		'!assets/styles/*.less'
 	],
 	assetsToWatch: [
 		'assets/**',
@@ -21,9 +19,10 @@ var paths = {
 };
 
 var cssFiles = [
+	'assets/js/vendor/bootstrap/dist/css/bootstrap.min.css',
 	'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
 	'assets/js/vendor/toastr/toastr.min.css',
-	'assets/styles/style.less'
+	'assets/styles/style.css'
 ];
 
 gulp.task('uglifyJs', function () {
@@ -39,8 +38,7 @@ gulp.task('uglifyJs', function () {
 
 gulp.task('minifyCSS', function () {
 	gulp.src(cssFiles)
-		.pipe(concat('style.min.less'))
-		.pipe(less())
+		.pipe(concat('style.min.css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest(paths.target + '/styles'));
 });

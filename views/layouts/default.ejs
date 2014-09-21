@@ -11,11 +11,14 @@
     <% /* HACK: Need this for JavaScripts in angular partials */ %>
     <% /* https://groups.google.com/forum/#!topic/angular/H4haaMePJU0 */ %>
 	<script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+
+    <% /* HACK: For some reason include in flash partial won't work */ %>
+    <script src="/js/vendor/toastr/toastr.min.js"></script>
 </head>
 
 <body>
-    <%- partial('../partials/flash') %>
     <%- body %>
+    <%- partial('../partials/flash') %>
     <%- partial('../partials/google_analytics') %>
 </body>
 

@@ -5,8 +5,8 @@
 	var success = req.flash('success');
 
 	if (this.sails.config.views.flash === 'toastr') {
-		var output = '<script src="/js/vendor/toastr/toastr.min.js"></script>';
-		output += "<script>toastr.options = { positionClass: 'toast-bottom-right' }; </script>"; %>
+		// var output = '<script src="/js/vendor/toastr/toastr.min.js"></script>';
+		var output = "<script>toastr.options = { positionClass: 'toast-bottom-right' }; </script>"; %>
 		<%- output %>
 	<% } %>
 

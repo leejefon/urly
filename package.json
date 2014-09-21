@@ -11,6 +11,7 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "ejs": "~0.8.4",
     "gulp": "^3.8.6",
     "gulp-concat": "^2.3.3",
@@ -22,9 +23,16 @@
     "mailgun-js": "^0.5.4",
     "newrelic": "^1.8.0",
     "nodetime": "^0.8.15",
+    "oauth2orize": "^1.0.1",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "passport-oauth2-client-password": "^0.1.2",
     "rc": "~0.5.0",
     "sails": "~0.10.4",
-    "sails-mongo": "^0.10.4"
+    "sails-mongo": "^0.10.4",
+    "sendgrid": "^1.2.0",
+    "sha256": "^0.1.1",
+    "underscore": "^1.7.0"
   },
   "devDependencies": {
     "frisby": "^0.8.1",
