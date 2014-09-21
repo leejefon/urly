@@ -22,9 +22,23 @@ module.exports = (function(){
 	}
 
 	function redirect (req, res) {
-		var shortUrl = req.param.shortUrl;
+		var shortUrl = req.param('shortUrl');
 
-		return res.redirect('/');
+		request({
+			url: process.env.URLY_API_URL + '/v1/url',
+			method: 'GET',
+			json: true,
+			qs: {
+				shortUrl: shortUrl,
+				key: process.env.URLY_API_KEY,
+			}
+		}, function (error, response, body) {
+			if (error || !body.longUrl) {
+				return res.redirect('/');
+			}
+			return res.redirect(body.longUrl);
+		});
+
 	}
 
     return {

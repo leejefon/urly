@@ -10,7 +10,7 @@
             validator="url" />
     </div>
 
-    <br /><br />
+    <br />
 
     <div class="text-center">
         <button class="btn btn-primary btn-lg" ng-click="shortenUrl()">Urly!</button>
@@ -18,7 +18,7 @@
 </form>
 
 <div class="well well-large hide" id="shortenedResult">
-
+    Your shortened URL: <a href="/{{ shortUrl }}" target="_blank">{{ baseUrl}}/{{ shortUrl}}</a>
 </div>
 
 <script src="/js/angular/user/partials/js/floating-label.js"></script>

@@ -36,7 +36,6 @@ header {
     font-size: 5em;
 }
 
-/* Custom page footer */
 footer {
     position: absolute;
     bottom: 0;
@@ -48,6 +47,10 @@ footer {
 
 footer p.pull-right a {
     margin-left: 18px;
+}
+
+#shortenedResult {
+    margin-top: 30px;
 }
 
 .floating-label-form-group {
