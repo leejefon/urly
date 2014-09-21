@@ -16,6 +16,8 @@ require.config({
         angularCookies: '../vendor/angular-cookies/angular-cookies',
         angularRoute: '../vendor/angular-route/angular-route',
         angularLoadingBar: '../vendor/angular-loading-bar/build/loading-bar',
+        angularValidation: '../vendor/angular-validation/dist/angular-validation',
+        angularValidationRule: '../vendor/angular-validation/dist/angular-validation-rule',
     },
     shim: {
         jquery: { exports: '$' },

@@ -17,7 +17,7 @@ define(['angular', 'angularRoute'], function(angular) {
 			});
 
 			$routeProvider.when('/dashboard', {
-				templateUrl: '/js/angular/urly/partials/index.html',
+				templateUrl: '/js/angular/urly/partials/dashboard.html',
 				controller: 'UrlyController'
 			});
 

@@ -20,6 +20,23 @@
     <%- body %>
     <%- partial('../partials/flash') %>
     <%- partial('../partials/google_analytics') %>
+
+    <footer>
+        <div class="container">
+            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee">Jeff Lee</a> 2014</p>
+            <p class="pull-right">
+                <% if (req.isAuthenticated()) { %>
+                    <a href="/dashboard" title="Dashboard">Dashboard</a>
+                    <a href="/docs" title="API Documentation">Developers</a>
+                    <a href="/user/logout" title="Dashboard" target="_self">Log Out</a>
+                <% } else { %>
+                    <a href="/user/login" title="Login" target="_self">Login</a>
+                    <a href="/user/signup" title="Sign Up" target="_self">Sign Up</a>
+                    <a href="/docs" title="API Documentation">Developers</a>
+                <% } %>
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

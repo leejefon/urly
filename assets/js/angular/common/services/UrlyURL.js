@@ -11,10 +11,10 @@ define(['common/services'], function (commonServices) {
     return commonServices
 
         .constant('UrlyURL', {
-            // api: 'https://leejefon.local:1339',
-            // app: 'https://leejefon.local:1337',
+            api: 'https://leejefon.local:1339',
+            app: 'https://leejefon.local:1337',
 
-            api: 'https://api.urly.cc',
-            app: 'https://www.urly.cc',
+            // api: 'http://api.urly.cc',
+            // app: 'http://www.urly.cc',
         });
 });

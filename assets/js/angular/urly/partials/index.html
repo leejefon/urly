@@ -1,11 +1,21 @@
-<div class="form-group floating-label-form-group">
-    <label for="longUrl">Enter your URL</label>
-    <input type="text" class="form-control" id="longUrl" ng-model="longUrl" placeholder="Enter your URL" />
-</div>
+<form role="form" name="urlyForm">
+    <div class="form-group floating-label-form-group">
+        <label for="longUrl">Enter your URL</label>
+        <input
+            type="text"
+            class="form-control input-lg"
+            id="longUrl"
+            ng-model="urlyForm.longUrl"
+            placeholder="Enter your URL"
+            validator="url" />
+    </div>
 
-<div class="text-center">
-    <button class="btn btn-primary btn-large" ng-click="shortenUrl()">Urly!</button>
-</div>
+    <br /><br />
+
+    <div class="text-center">
+        <button class="btn btn-primary btn-lg" ng-click="shortenUrl()">Urly!</button>
+    </div>
+</form>
 
 <div class="well well-large hide" id="shortenedResult">
 

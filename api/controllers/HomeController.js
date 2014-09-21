@@ -16,8 +16,8 @@ module.exports = (function(){
 	}
 
 	function dashboard (req, res) {
-		return res.view({
-			layout: 'default/dashboard'
+		return res.view('home/index', {
+			layout: 'layouts/dashboard'
 		});
 	}
 
