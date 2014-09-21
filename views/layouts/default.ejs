@@ -17,9 +17,32 @@
 </head>
 
 <body>
-    <%- body %>
-    <%- partial('../partials/flash') %>
-    <%- partial('../partials/google_analytics') %>
+    <div class="container">
+        <header>
+            <div class="text-center">
+                <a href="/" title="URLy URL Shortener">URLy</a>
+            </div>
+        </header>
+
+        <%- body %>
+        <%- partial('../partials/flash') %>
+        <%- partial('../partials/google_analytics') %>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee">Jeff Lee</a> 2014</p>
+            <p class="pull-right">
+                <% if (req.isAuthenticated()) { %>
+                    <a href="/dashboard" title="Dashboard">Dashboard</a>
+                <% } else { %>
+                    <a href="/user/login" title="Login">Login</a>
+                    <a href="/user/signup" title="Sign Up">Sign Up</a>
+                <% } %>
+                <a href="/docs" title="API Documentation">Developers</a>
+            </p>
+        </div>
+    </footer>
 </body>
 
 </html>

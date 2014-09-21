@@ -7,23 +7,29 @@
  * @created     :: 2014/09/17
  */
 
+var request = require('request');
+
 module.exports = (function(){
 
 	function index (req, res) {
 		return res.view();
 	}
 
-	function docs (req, res) {
-
+	function dashboard (req, res) {
+		return res.view({
+			layout: 'default/dashboard'
+		});
 	}
 
 	function redirect (req, res) {
+		var shortUrl = req.param.shortUrl;
 
+		return res.redirect('/');
 	}
 
     return {
         index: index,
-		docs: docs,
+		dashboard: dashboard,
 		redirect: redirect,
 
         _config: {}

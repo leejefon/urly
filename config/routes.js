@@ -23,8 +23,8 @@
 module.exports.routes = {
 
     'GET /'                         : 'HomeController.index',
-    'GET /docs'                     : 'HomeController.index',
-    'GET /dashboard'                : 'HomeController.index',
+    'GET /docs'                     : 'HomeController.dashboard',
+    'GET /dashboard'                : 'HomeController.dashboard',
     'GET /user/login'               : 'HomeController.index',
     'GET /user/signup'              : 'HomeController.index',
     'GET /user/edit'                : 'HomeController.index',
@@ -38,6 +38,6 @@ module.exports.routes = {
     'POST /user/reset_password'      : 'UserController.reset_password',
     'POST /user/reset_password/:key' : 'UserController.reset_password',
 
-    'GET /:shortUrl': 'HomeController.redirect'
+    'GET /:shortUrl'                 : 'HomeController.redirect'
 
 };

@@ -19,9 +19,9 @@ var paths = {
 };
 
 var cssFiles = [
-	'assets/js/vendor/bootstrap/dist/css/bootstrap.min.css',
 	'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
 	'assets/js/vendor/toastr/toastr.min.css',
+	'assets/styles/bootstrap.paper.css',
 	'assets/styles/style.css'
 ];
 

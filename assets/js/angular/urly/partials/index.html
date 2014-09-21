@@ -1,6 +1,14 @@
-<div class="form-group">
-    <label for="longUrl">Url</label>
-    <input type="text" class="form-control" id="longUrl" placeholder="Enter URL" />
-
-    <button class="btn btn-primary" ng-click="shortenUrl()">Urly!</button>
+<div class="form-group floating-label-form-group">
+    <label for="longUrl">Enter your URL</label>
+    <input type="text" class="form-control" id="longUrl" ng-model="longUrl" placeholder="Enter your URL" />
 </div>
+
+<div class="text-center">
+    <button class="btn btn-primary btn-large" ng-click="shortenUrl()">Urly!</button>
+</div>
+
+<div class="well well-large hide" id="shortenedResult">
+
+</div>
+
+<script src="/js/angular/user/partials/js/floating-label.js"></script>

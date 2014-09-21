@@ -16,6 +16,12 @@ module.exports = (function(){
             type: 'json',
             required: true
         },
+
+        owner: {
+            type: 'string',
+            required: true
+        },
+
         call_history: {
             type: 'array',
             defaultsTo: []

@@ -11,6 +11,8 @@ define(['common/services', 'common/services/UrlyURL'], function (commonServices)
     return commonServices
 
         .factory('UrlyAPI', ['$http', '$cookies', 'UrlyURL', function ($http, $cookies, UrlyURL) {
+            var APIKey = '';
+
             $http.defaults.headers.common.Authorization = 'Bearer ' + $cookies.access_token;
 
             function UrlyAPI (params) {
