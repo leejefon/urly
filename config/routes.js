@@ -32,6 +32,7 @@ module.exports.routes = {
     'GET /user/reset_password/:key' : 'HomeController.index',
 
     'POST /user/login'               : 'UserController.login',
+    'GET  /user/post_login'          : 'UserController.post_login',
     'GET  /user/logout'              : 'UserController.logout',
     'POST /user/add'                 : 'UserController.add',
     'POST /user/update'              : 'UserController.update',

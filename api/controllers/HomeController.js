@@ -28,6 +28,11 @@ module.exports = (function(){
 			url: process.env.URLY_API_URL + '/v1/url',
 			method: 'GET',
 			json: true,
+			headers: {
+				'User-Agent': req.get('user-agent'),
+				'Referer': req.get('referer') || "",
+				'Remote-Address': req.connection.remoteAddress
+			},
 			qs: {
 				shortUrl: shortUrl,
 				key: process.env.URLY_API_KEY,

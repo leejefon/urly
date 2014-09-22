@@ -22,7 +22,7 @@ module.exports.policies = {
     '*': true,
 
     HomeController: {
-
+        dashboard: ['isAuthenticated']
     },
 
     UserController: {

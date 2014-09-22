@@ -12,11 +12,6 @@ module.exports = (function(){
     var tableName = 'api_keys';
 
     var attributes = {
-        domain: {
-            type: 'json',
-            required: true
-        },
-
         owner: {
             type: 'string',
             required: true

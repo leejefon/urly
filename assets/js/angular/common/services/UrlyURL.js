@@ -15,6 +15,6 @@ define(['common/services'], function (commonServices) {
             // app: 'https://leejefon.local:1338',
 
             api: 'http://api.urly.cc',
-            app: 'http://www.urly.cc',
+            app: 'http://urly.cc',
         });
 });

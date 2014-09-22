@@ -11,8 +11,20 @@ var Passport = require('passport');
 
 module.exports = (function(){
 
+    function post_login (req, res) {
+        var sixHours = 6 * 60 * 60 * 1000;
+
+        res.cookie('user', JSON.stringify({
+            id: req.user[0].id,
+            email: req.user[0].email
+        }), { maxAge: sixHours });
+
+        res.redirect('/dashboard'); // /user/login Handles the after login random stuff
+    }
+
     function logout (req, res) {
         req.logout();
+        res.clearCookie('user');
         return res.redirect('/');
     }
 
@@ -69,10 +81,11 @@ module.exports = (function(){
 
     return {
         login: Passport.authenticate('local', {
-            successReturnToOrRedirect: '/dashboard',
+            successReturnToOrRedirect: '/user/post_login',
             failureRedirect: '/user/login',
             failureFlash: 'Wrong username or password.'
         }),
+        post_login: post_login,
         logout: logout,
         reset_password: reset_password,
         get: get,

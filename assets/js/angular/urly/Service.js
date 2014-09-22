@@ -5,16 +5,17 @@
  * @created     :: 2014/07/06
  */
 
-define(['angular', 'common/services/UrlyAPI'], function (angular) {
+define(['angular', 'angularCookies', 'common/services/UrlyAPI'], function (angular) {
 	'use strict';
 
-	return angular.module('Urly.services', ['Common.services'])
+	return angular.module('Urly.services', ['Common.services', 'ngCookies'])
 
-		.factory('urly', ['UrlyAPI', function (UrlyAPI) {
+		.factory('urly', ['UrlyAPI', '$cookies', function (UrlyAPI, $cookies) {
 			return {
 				shorten: function (params, cb) {
 					UrlyAPI.put('/v1/url?fields=shortUrl&key=' + UrlyAPI.key, {
-						longUrl: params.longUrl
+						longUrl: params.longUrl,
+						userId: $cookies.user ? angular.fromJson($cookies.user).id : null
 					}).success(function (response) {
 						if (response.error) {
 							cb(response.error);
