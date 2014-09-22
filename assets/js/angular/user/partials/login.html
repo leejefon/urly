@@ -8,6 +8,7 @@
             id="email"
             placeholder="E-mail"
             ng-model="email"
+            tabindex="1"
             validator="required, email" />
     </div>
 
@@ -19,6 +20,7 @@
             name="password"
             id="password"
             placeholder="Password"
+            tabindex="2"
             ng-model="password" />
     </div>
 </form>
@@ -26,7 +28,7 @@
 <br />
 
 <div class="text-center">
-    <button class="btn btn-primary btn-lg" ng-click="login()">Login</button>
+    <button class="btn btn-primary btn-lg" ng-click="login()" tabindex="3">Login</button>
 </div>
 
 <script src="/js/angular/user/partials/js/floating-label.js"></script>

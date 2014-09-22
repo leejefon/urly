@@ -7,13 +7,14 @@
             id="longUrl"
             ng-model="urlyForm.longUrl"
             placeholder="Enter your URL"
+            tabindex="1"
             validator="url" />
     </div>
 
     <br />
 
     <div class="text-center">
-        <button class="btn btn-primary btn-lg" ng-click="shortenUrl()">Urly!</button>
+        <button class="btn btn-primary btn-lg" ng-click="shortenUrl()" tabindex="2">Urly!</button>
     </div>
 </form>
 

@@ -22,7 +22,7 @@ require.config({
     shim: {
         jquery: { exports: '$' },
         bootstrap: ['jquery'],
-        toastr: ['jquery'],
+        toastr: { exports: 'toastr', deps: ['jquery'] },
 
         angular: { exports: 'angular', deps: ['jquery'] },
         angularCookies: ['angular'],

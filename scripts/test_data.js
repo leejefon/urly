@@ -11,6 +11,14 @@ module.exports = {
 
     users_test: [
 
+    ],
+
+    clients_test: [
+
+    ],
+
+    api_keys_test: [
+
     ]
 
 };
