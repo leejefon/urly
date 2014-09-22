@@ -23,7 +23,7 @@
 module.exports.routes = {
 
     'GET /'                         : 'HomeController.index',
-    'GET /docs'                     : 'HomeController.dashboard',
+    'GET /docs'                     : 'HomeController.docs',
     'GET /dashboard'                : 'HomeController.dashboard',
     'GET /user/login'               : 'HomeController.index',
     'GET /user/signup'              : 'HomeController.index',

@@ -15,6 +15,12 @@ module.exports = (function(){
 		return res.view();
 	}
 
+	function docs (req, res) {
+		return res.view('home/index', {
+			layout: 'layouts/docs'
+		});
+	}
+
 	function dashboard (req, res) {
 		return res.view('home/index', {
 			layout: 'layouts/dashboard'
@@ -48,6 +54,7 @@ module.exports = (function(){
 
     return {
         index: index,
+		docs: docs,
 		dashboard: dashboard,
 		redirect: redirect,
 

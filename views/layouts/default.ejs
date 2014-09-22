@@ -26,8 +26,6 @@
         </header>
 
         <%- body %>
-        <%- partial('../partials/flash') %>
-        <%- partial('../partials/google_analytics') %>
     </div>
 
     <footer>
@@ -37,7 +35,7 @@
                 <% if (req.isAuthenticated()) { %>
                     <a href="/dashboard" title="Dashboard" target="_self">Dashboard</a>
                     <a href="/docs" title="API Documentation" target="_self">Developers</a>
-                    <a href="/user/logout" title="Dashboard" target="_self">Log Out</a>
+                    <a href="/user/logout" title="Dashboard">Log Out</a>
                 <% } else { %>
                     <a href="/user/login" title="Login">Login</a>
                     <a href="/user/signup" title="Sign Up">Sign Up</a>
@@ -46,6 +44,9 @@
             </p>
         </div>
     </footer>
+
+    <%- partial('../partials/flash') %>
+    <%- partial('../partials/google-analytics') %>
 </body>
 
 </html>
