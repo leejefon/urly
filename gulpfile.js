@@ -18,12 +18,26 @@ var paths = {
 	]
 };
 
-var cssFiles = [
-	'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
-	'assets/js/vendor/toastr/toastr.min.css',
-	'assets/styles/bootstrap.paper.css',
-	'assets/styles/style.css'
-];
+var cssFiles = {
+	default: [
+		'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
+		'assets/js/vendor/toastr/toastr.min.css',
+		'assets/styles/bootstrap.paper.css',
+		'assets/styles/style.css'
+	],
+	dashboard: [
+		'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
+		'assets/js/vendor/toastr/toastr.min.css',
+		'assets/styles/bootstrap.paper.css',
+		'assets/styles/dashboard.css'
+	],
+	docs: [
+		'assets/js/vendor/angular-loading-bar/build/loading-bar.min.css',
+		'assets/js/vendor/toastr/toastr.min.css',
+		'assets/styles/bootstrap.paper.css',
+		'assets/styles/docs.css'
+	]
+};
 
 gulp.task('uglifyJs', function () {
 	rjs({
@@ -37,8 +51,18 @@ gulp.task('uglifyJs', function () {
 });
 
 gulp.task('minifyCSS', function () {
-	gulp.src(cssFiles)
+	gulp.src(cssFiles.default)
 		.pipe(concat('style.min.css'))
+		.pipe(minifyCSS())
+		.pipe(gulp.dest(paths.target + '/styles'));
+
+	gulp.src(cssFiles.dashboard)
+		.pipe(concat('dashboard.min.css'))
+		.pipe(minifyCSS())
+		.pipe(gulp.dest(paths.target + '/styles'));
+
+	gulp.src(cssFiles.docs)
+		.pipe(concat('docs.min.css'))
 		.pipe(minifyCSS())
 		.pipe(gulp.dest(paths.target + '/styles'));
 });

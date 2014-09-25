@@ -10,7 +10,7 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Service',
 
 	return angular.module('Urly.controllers', ['Urly.services', 'Common.services', 'validation', 'validation.rule'])
 
-		.controller('UrlyController', ['$scope', '$injector', 'urly', 'UrlyURL', function ($scope, $injector, urly, UrlyURL) {
+		.controller('UrlyController', ['$scope', '$location', '$injector', 'urly', 'UrlyURL', function ($scope, $location, $injector, urly, UrlyURL) {
 			var $validationProvider = $injector.get('$validation');
 
 			$scope.baseUrl = UrlyURL.app;
@@ -25,5 +25,19 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Service',
 					});
 				}
 			};
+
+			$scope.init = function () {
+				if ($location.url() === '/dashboard') {
+					urly.list({
+						page: 1,
+						per_page: 10
+					}, function (err, data) {
+						console.log(data);
+						$scope.urls = data;
+					});
+				}
+			};
+
+			$scope.init();
 		}]);
 });

@@ -13,9 +13,17 @@ define(['angular', 'angularCookies', 'common/services/UrlyAPI'], function (angul
 		.factory('urly', ['UrlyAPI', '$cookies', function (UrlyAPI, $cookies) {
 			return {
 				shorten: function (params, cb) {
-					UrlyAPI.put('/v1/url?fields=shortUrl&key=' + UrlyAPI.key, {
-						longUrl: params.longUrl,
-						userId: $cookies.user ? angular.fromJson($cookies.user).id : null
+					UrlyAPI({
+						url: '/v1/url',
+						method: 'PUT',
+						params: {
+							fields: 'shortUrl',
+							key: UrlyAPI.key
+						},
+						data: {
+							longUrl: params.longUrl,
+							userId: $cookies.user ? angular.fromJson($cookies.user).id : null
+						}
 					}).success(function (response) {
 						if (response.error) {
 							cb(response.error);
@@ -24,9 +32,41 @@ define(['angular', 'angularCookies', 'common/services/UrlyAPI'], function (angul
 						}
 					});
 				},
+				list: function (params, cb) {
+					$.extend({
+						page: 1,
+						per_page: 10
+					}, params);
+
+					UrlyAPI({
+						url: '/v1/url/history',
+						method: 'GET',
+						params: {
+							fields: '', // default
+							page: params.page,
+							per_page: params.per_page,
+							key: UrlyAPI.key
+						},
+						headers: {
+							Authorization: 'Bearer ' + $cookies.access_token
+						}
+					}).success(function (response) {
+						if (response.error) {
+							cb(response.error);
+						} else {
+							cb(null, response)
+						}
+					});
+				},
 				expand: function (params, cb) {
-					UrlyAPI.get('/v1/url?fields=longUrl&key=' + UrlyAPI.key, {
-						longUrl: params.longUrl
+					UrlyAPI({
+						url: '/v1/url',
+						method: 'GET',
+						params: {
+							fields: 'longUrl',
+							shortUrl: params.shortUrl,
+							key: UrlyAPI.key
+						}
 					}).success(function (response) {
 						if (response.error) {
 							cb(response.error);
@@ -36,7 +76,21 @@ define(['angular', 'angularCookies', 'common/services/UrlyAPI'], function (angul
 					});
 				},
 				analytics: function (cb) {
-
+					UrlyAPI({
+						url: '/v1/url',
+						method: 'GET',
+						params: {
+							fields: ['longUrl', 'analytics'].join(','),
+							shortUrl: params.shortUrl,
+							key: UrlyAPI.key
+						}
+					}).success(function (response) {
+						if (response.error) {
+							cb(response.error);
+						} else {
+							cb(null, response)
+						}
+					});
 				}
 			};
 		}]);

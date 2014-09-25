@@ -11,23 +11,28 @@ define(['angular', 'angularRoute'], function(angular) {
 	return angular.module('User.routes', ['ngRoute'])
 
 		.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-			$routeProvider.when('/user/login', {
+			$routeProvider.when('/login', {
 				templateUrl: '/js/angular/user/partials/login.html',
 				controller: 'UserController'
 			});
 
-			$routeProvider.when('/user/reset_password', {
-				templateUrl: '/js/angular/user/partials/reset_password.html',
-				controller: 'UserController'
-			});
-
-			$routeProvider.when('/user/reset_password/:key', {
-				templateUrl: '/js/angular/user/partials/reset_password.html',
-				controller: 'UserController'
-			});
-
-			$routeProvider.when('/user/signup', {
+			$routeProvider.when('/signup', {
 				templateUrl: '/js/angular/user/partials/signup.html',
+				controller: 'UserController'
+			});
+
+			$routeProvider.when('/reset_password', {
+				templateUrl: '/js/angular/user/partials/reset_password.html',
+				controller: 'UserController'
+			});
+
+			$routeProvider.when('/reset_password/:key', {
+				templateUrl: '/js/angular/user/partials/reset_password.html',
+				controller: 'UserController'
+			});
+
+			$routeProvider.when('/user/profile', {
+				templateUrl: '/js/angular/user/partials/edit.html',
 				controller: 'UserController'
 			});
 

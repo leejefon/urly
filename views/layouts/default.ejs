@@ -30,15 +30,15 @@
 
     <footer>
         <div class="container">
-            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee">Jeff Lee</a> 2014</p>
+            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee" target="_blank">Jeff Lee</a> 2014</p>
             <p class="pull-right">
                 <% if (req.isAuthenticated()) { %>
                     <a href="/dashboard" title="Dashboard" target="_self">Dashboard</a>
                     <a href="/docs" title="API Documentation" target="_self">Developers</a>
                     <a href="/user/logout" title="Dashboard">Log Out</a>
                 <% } else { %>
-                    <a href="/user/login" title="Login">Login</a>
-                    <a href="/user/signup" title="Sign Up">Sign Up</a>
+                    <a href="/login" title="Login">Login</a>
+                    <a href="/signup" title="Sign Up">Sign Up</a>
                     <a href="/docs" title="API Documentation" target="_self">Developers</a>
                 <% } %>
             </p>
@@ -46,7 +46,6 @@
     </footer>
 
     <%- partial('../partials/flash') %>
-    <%- partial('../partials/google-analytics') %>
 </body>
 
 </html>

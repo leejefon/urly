@@ -7,7 +7,7 @@
     <title>Urly</title>
 
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Indie+Flower' />
-    <link rel='stylesheet' type='text/css' href="/styles/style.min.css" />
+    <link rel='stylesheet' type='text/css' href="/styles/dashboard.min.css" />
 
     <% /* HACK: Need this for JavaScripts in angular partials */ %>
     <% /* https://groups.google.com/forum/#!topic/angular/H4haaMePJU0 */ %>
@@ -18,27 +18,29 @@
 </head>
 
 <body>
-    <%- body %>
+    <div class="container">
+        <header>
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/user/profile">Account</a></li>
+            </ul>
+            <h2><a href="/" title="URLy URL Shortener" target="_self">URLy</a></h2>
+        </header>
+
+        <%- body %>
+    </div>
 
     <footer>
         <div class="container">
-            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee">Jeff Lee</a> 2014</p>
+            <p class="pull-left">&copy; <a href="http://jefflee.net" title="Jeff Lee" target="_blank">Jeff Lee</a> 2014</p>
             <p class="pull-right">
-                <% if (req.isAuthenticated()) { %>
-                    <a href="/dashboard" title="Dashboard">Dashboard</a>
-                    <a href="/docs" title="API Documentation">Developers</a>
-                    <a href="/user/logout" title="Dashboard" target="_self">Log Out</a>
-                <% } else { %>
-                    <a href="/user/login" title="Login" target="_self">Login</a>
-                    <a href="/user/signup" title="Sign Up" target="_self">Sign Up</a>
-                    <a href="/docs" title="API Documentation">Developers</a>
-                <% } %>
+                <a href="/docs" title="API Documentation">Developers</a>
+                <a href="/user/logout" title="Dashboard" target="_self">Log Out</a>
             </p>
         </div>
     </footer>
 
     <%- partial('../partials/flash') %>
-    <%- partial('../partials/google-analytics') %>
 </body>
 
 </html>

@@ -11,16 +11,15 @@ var Passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     ClientPasswordStrategy = require('passport-oauth2-client-password').Strategy,
     bcrypt = require('bcrypt'),
-    util = require('util');
+    util = require('util'),
+    uid = require('uid');
 
 Passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    done(null, user);
 });
 
-Passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-        done(err, user);
-    });
+Passport.deserializeUser(function (user, done) {
+    done(null, user);
 });
 
 var UserPasswordStrategy = (function(){
@@ -74,12 +73,24 @@ Passport.use(new LocalStrategy({
             bcrypt.compare(password, user.password, function (err, res) {
                 if (!res) return done(null, false, { message: 'Invalid Password' });
 
+                // Hack: create access_token instead of through OAuth because it's in the same app
+                var token = uid(64);
+                AccessToken.create({
+                    token: token,
+                    userId: user.id,
+                    clientId: 'https://urly.cc'
+                }, function (err, accessToken) {
+                    if (err) { return done(err); }
+                });
+
                 delete user.password;
                 user.security_logs.push({
                     action: 'Login',
                     timestamp: new Date()
                 });
                 user.save(function(){});
+
+                user.access_token = token;
 
                 return done(null, user);
             });

@@ -16,13 +16,6 @@ module.exports = Server.authorization(function (clientId, redirectURI, done) {
         return done(null, client, redirectURI);
     });
 }, function (client, user, done) {
-    var TestLegendsAppID = '536c7df8fe3a9bf0fa000216';
-    var TestLegendsBuildID = '53562b9335e2e5c84c0001fa';
-
-    if (client.id === TestLegendsBuildID || client.id === TestLegendsAppID) {
-        return done(null, true);
-    }
-
     AuthCode.find({
         clientId: client.id,
         userId: user[0].id

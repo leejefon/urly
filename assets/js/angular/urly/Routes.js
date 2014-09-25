@@ -16,13 +16,18 @@ define(['angular', 'angularRoute'], function(angular) {
 				controller: 'UrlyController',
 			});
 
+			$routeProvider.when('/docs', {
+				templateUrl: '/js/angular/urly/partials/docs.html',
+				controller: 'UrlyController'
+			});
+
 			$routeProvider.when('/dashboard', {
 				templateUrl: '/js/angular/urly/partials/dashboard.html',
 				controller: 'UrlyController'
 			});
 
-			$routeProvider.when('/docs', {
-				templateUrl: '/js/angular/urly/partials/docs.html',
+			$routeProvider.when('/stats/:shortUrl', {
+				templateUrl: '/js/angular/urly/partials/stats.html',
 				controller: 'UrlyController'
 			});
 

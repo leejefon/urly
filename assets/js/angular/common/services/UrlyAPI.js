@@ -49,7 +49,8 @@ define(['common/services', 'common/services/UrlyURL'], function (commonServices)
 
             function _errorHandler (data, status) {
                 if (status === 401) {
-                    window.location.href = '/user/login';
+                    //window.location.href = '/login';
+                    console.log('401 error');
                 }
             }
 

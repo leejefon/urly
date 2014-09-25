@@ -33,6 +33,7 @@
     "sails-mongo": "^0.10.4",
     "sendgrid": "^1.2.0",
     "sha256": "^0.1.1",
+    "uid": "0.0.2",
     "underscore": "^1.7.0"
   },
   "devDependencies": {

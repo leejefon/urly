@@ -26,4 +26,4 @@ module.exports = (function ensureLoggedIn(options) {
         }
         next();
     };
-})({ redirectTo: '/user/login' });
+})();
