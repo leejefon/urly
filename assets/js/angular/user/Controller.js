@@ -10,7 +10,7 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'user/Service']
 
 	return angular.module('User.controllers', ['User.services', 'validation', 'validation.rule'])
 
-		.controller('UserController', ['$scope', '$injector', 'users', function ($scope, $injector, users) {
+		.controller('UserController', ['$scope', '$location', '$injector', 'users', function ($scope, $location, $injector, users) {
 			var $validationProvider = $injector.get('$validation');
 
 			$scope.login = function () {
@@ -24,5 +24,18 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'user/Service']
 					$('form[name=signupForm]').submit();
 				}
 			};
+
+			$scope.init = function () {
+				if ($location.url().indexOf('/account') !== -1) {
+					$('#nav-account').addClass('active');
+					$('#nav-dashboard').removeClass('active');
+
+					users.getUser(function (err, data) {
+						$scope.user = data;
+					});
+				}
+			};
+
+			$scope.init();
 		}]);
 });
