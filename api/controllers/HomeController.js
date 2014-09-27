@@ -30,6 +30,11 @@ module.exports = (function(){
 	function redirect (req, res) {
 		var shortUrl = req.param('shortUrl');
 
+		// Hack: temporarily handles the request to favicon, need to figure out how to do favicon later
+		if (shortUrl === 'favicon.ico') {
+			return res.json({});
+		}
+
 		request({
 			url: process.env.URLY_API_URL + '/v1/url',
 			method: 'GET',
