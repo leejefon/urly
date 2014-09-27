@@ -31,12 +31,12 @@ define(['angular', 'angularRoute'], function(angular) {
 				controller: 'UserController'
 			});
 
-			$routeProvider.when('/user/profile', {
-				templateUrl: '/js/angular/user/partials/edit.html',
+			$routeProvider.when('/account', {
+				templateUrl: '/js/angular/user/partials/index.html',
 				controller: 'UserController'
 			});
 
-			$routeProvider.when('/user/edit', {
+			$routeProvider.when('/account/edit', {
 				templateUrl: '/js/angular/user/partials/edit.html',
 				controller: 'UserController'
 			});

@@ -26,21 +26,22 @@ module.exports.routes = {
     'GET /docs'                     : 'HomeController.docs',
     'GET /dashboard'                : 'HomeController.dashboard',
     'GET /stats/:shortUrl'          : 'HomeController.dashboard',
-    'GET /user/profile'             : 'HomeController.dashboard',
-    'GET /user/edit'                : 'HomeController.dashboard',
+    'GET /account'                  : 'HomeController.dashboard',
+    'GET /account/edit'             : 'HomeController.dashboard',
     'GET /login'                    : 'HomeController.index',
     'GET /signup'                   : 'HomeController.index',
     'GET /reset_password'           : 'HomeController.index',
     'GET /reset_password/:key'      : 'HomeController.index',
 
-    'POST /user/login'               : 'UserController.login',
-    'GET  /user/post_login'          : 'UserController.post_login',
-    'GET  /user/logout'              : 'UserController.logout',
-    'POST /user/add'                 : 'UserController.add',
-    'POST /user/update'              : 'UserController.update',
-    'POST /user/reset_password'      : 'UserController.reset_password',
-    'POST /user/reset_password/:key' : 'UserController.reset_password',
+    'GET  /user'                    : 'UserController.get',
+    'POST /user/login'              : 'UserController.login',
+    'GET  /user/post_login'         : 'UserController.post_login',
+    'GET  /user/logout'             : 'UserController.logout',
+    'POST /user/add'                : 'UserController.add',
+    'POST /user/update'             : 'UserController.update',
+    'POST /user/reset_password'     : 'UserController.reset_password',
+    'POST /user/reset_password/:key': 'UserController.reset_password',
 
-    'GET /:shortUrl'                 : 'HomeController.redirect'
+    'GET /:shortUrl'                : 'HomeController.redirect'
 
 };
