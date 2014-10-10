@@ -1,0 +1,15 @@
+<table class="table table-striped table-hover">
+    <tr>
+        <td>Long URL</td>
+        <td>Short URL</td>
+        <td>Created</td>
+        <td>&nbsp;</td>
+    </tr>
+
+    <tr ng-repeat="url in urls.items">
+        <td><a href="{{ url.longUrl }}" target="_blank">{{ url.longUrl }}</a></td>
+        <td><a href="{{ baseUrl }}/{{ url.shortUrl }}" target="_blank">{{ baseUrl }}/{{ url.shortUrl }}</a></td>
+        <td>{{ url.createdAt | date: short }}</td>
+        <td><a href="/stats/{{ url.shortUrl }}">Details</a></td>
+    </tr>
+</table>

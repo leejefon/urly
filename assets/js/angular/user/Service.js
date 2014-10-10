@@ -12,7 +12,15 @@ define(['angular'], function (angular) {
 
 		.factory('users', ['$http', function ($http) {
 			return {
-
+				getUser: function (cb) {
+					$http.get('/user').success(function (response) {
+						if (response.status === 'OK') {
+							cb(null, response.data);
+						} else {
+							cb(response.error);
+						}
+					});
+				}
 			};
 		}]);
 });

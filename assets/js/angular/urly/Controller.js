@@ -28,11 +28,13 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Service',
 
 			$scope.init = function () {
 				if ($location.url() === '/dashboard') {
+					$('#nav-dashboard').addClass('active');
+					$('#nav-account').removeClass('active');
+
 					urly.list({
 						page: 1,
 						per_page: 10
 					}, function (err, data) {
-						console.log(data);
 						$scope.urls = data;
 					});
 				}
