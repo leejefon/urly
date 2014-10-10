@@ -18,7 +18,7 @@ module.exports = Server.authorization(function (clientId, redirectURI, done) {
 }, function (client, user, done) {
     AuthCode.find({
         clientId: client.id,
-        userId: user[0].id
+        userId: user.id
     }, function (err, codes) {
         if (err) { return done(err); }
         if (codes.length > 0) {

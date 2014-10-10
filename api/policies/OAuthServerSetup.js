@@ -18,14 +18,11 @@ module.exports = (function(){
     var server = OAuth2orize.createServer();
 
     server.serializeClient(function(client, done) {
-        return done(null, client.id);
+        return done(null, client);
     });
 
-    server.deserializeClient(function(id, done) {
-        Client.findOne({ id: id }, function(err, client) {
-            if (err) { return done(err); }
-            return done(null, client);
-        });
+    server.deserializeClient(function(client, done) {
+        return done(null, client);
     });
 
     server.grant(OAuth2orize.grant.code(function(client, redirectURI, user, ares, done) {
@@ -33,7 +30,7 @@ module.exports = (function(){
         AuthCode.create({
             code: code,
             clientId: client.id,
-            userId: user[0].id,
+            userId: user.id,
             redirectURI: redirectURI
         }, function(err, authCode) {
             if (err) { return done(err); }

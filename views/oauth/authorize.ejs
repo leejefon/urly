@@ -4,7 +4,7 @@
     <div class="panel-body">
         <h3><%= client.name %> is requesting access to your account</h3>
         <form action="/oauth/decision" method="post">
-            <input type="hidden" value="<%= transactionID %>" />
+            <input type="hidden" value="<%= transactionID %>" name="transaction_id" />
             <input type="submit" value="Allow" class="btn btn-success" id="allow" />
             <input type="submit" value="Deny" class="btn btn-danger" name="cancel" id="deny" />
         </form>

@@ -44,7 +44,7 @@ module.exports.routes = {
 
     'GET  /oauth/authorize'         : 'OAuthController.authorize',
     'POST /oauth/decision'          : 'OAuthController.decision',
-    'GET  /oauth/token'             : 'OAuthController.token',
+    'POST /oauth/token'             : 'OAuthController.token',
 
     'GET /:shortUrl'                : 'HomeController.redirect'
 
