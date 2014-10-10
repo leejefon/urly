@@ -28,12 +28,6 @@ module.exports = (function(){
     return {
         authorize: authorize,
         decision: decision,
-        token: token,
-
-        _config: {
-            blueprints: {
-                actions: true
-            }
-        }
+        token: token
     };
 })();

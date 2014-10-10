@@ -42,6 +42,10 @@ module.exports.routes = {
     'POST /user/reset_password'     : 'UserController.reset_password',
     'POST /user/reset_password/:key': 'UserController.reset_password',
 
+    'GET  /oauth/authorize'         : 'OAuthController.authorize',
+    'POST /oauth/decision'          : 'OAuthController.decision',
+    'GET  /oauth/token'             : 'OAuthController.token',
+
     'GET /:shortUrl'                : 'HomeController.redirect'
 
 };
