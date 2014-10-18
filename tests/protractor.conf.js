@@ -11,7 +11,7 @@ exports.config = {
 
   chromeOnly: false,
 
-  baseUrl: 'http://localhost:1337/',
+  baseUrl: 'https://leejefon.local:1337/',
 
   framework: 'jasmine',
 

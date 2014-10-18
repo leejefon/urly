@@ -37,7 +37,6 @@
     "underscore": "^1.7.0"
   },
   "devDependencies": {
-    "frisby": "^0.8.1",
     "chai": "^1.9.1",
     "mocha": "^1.20.1",
     "karma": "^0.12.17",
