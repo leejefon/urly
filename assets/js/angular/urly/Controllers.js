@@ -10,7 +10,7 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Services'
 
 	return angular.module('Urly.controllers', ['Urly.services', 'validation', 'validation.rule'])
 
-		.controller('UrlyController', ['$scope', '$location', '$routeParams', '$injector', 'urly', 'UrlyURL', function ($scope, $location, $routeParams, $injector, urly, UrlyURL) {
+		.controller('UrlyController', ['$scope', '$location', '$routeParams', '$injector', 'UrlyURL', 'urly', function ($scope, $location, $routeParams, $injector, UrlyURL, urly) {
 			var $validationProvider = $injector.get('$validation');
 
 			$scope.baseUrl = UrlyURL.app;
@@ -43,7 +43,7 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Services'
 			$scope.init();
 		}])
 
-		.controller('StatsController', ['$scope', '$routeParams', 'urly', function ($scope, $routeParams, urly) {
+		.controller('StatsController', ['$scope', '$routeParams', 'UrlyURL', 'urly', function ($scope, $routeParams, UrlyURL, urly) {
 
 			$scope.baseUrl = UrlyURL.app;
 
