@@ -28,7 +28,7 @@ define(['angular', 'angularRoute'], function(angular) {
 
 			$routeProvider.when('/stats/:shortUrl', {
 				templateUrl: '/js/angular/urly/partials/stats.html',
-				controller: 'UrlyController'
+				controller: 'StatsController'
 			});
 
 			$locationProvider.html5Mode(true);

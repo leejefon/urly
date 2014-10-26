@@ -8,7 +8,7 @@
 define([
 	'angular',
 	'angularLoadingBar',
-	'urly/Controller',
+	'urly/Controllers',
     'urly/Routes'
 ], function (angular) {
 	'use strict';

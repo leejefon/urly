@@ -5,12 +5,12 @@
  * @created     :: 2014/09/20
  */
 
-define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Service', 'common/services/UrlyURL'], function (angular) {
+define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Services'], function (angular) {
 	'use strict';
 
-	return angular.module('Urly.controllers', ['Urly.services', 'Common.services', 'validation', 'validation.rule'])
+	return angular.module('Urly.controllers', ['Urly.services', 'validation', 'validation.rule'])
 
-		.controller('UrlyController', ['$scope', '$location', '$injector', 'urly', 'UrlyURL', function ($scope, $location, $injector, urly, UrlyURL) {
+		.controller('UrlyController', ['$scope', '$location', '$routeParams', '$injector', 'urly', 'UrlyURL', function ($scope, $location, $routeParams, $injector, urly, UrlyURL) {
 			var $validationProvider = $injector.get('$validation');
 
 			$scope.baseUrl = UrlyURL.app;
@@ -38,6 +38,21 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Service',
 						$scope.urls = data;
 					});
 				}
+			};
+
+			$scope.init();
+		}])
+
+		.controller('StatsController', ['$scope', '$routeParams', 'urly', function ($scope, $routeParams, urly) {
+
+			$scope.baseUrl = UrlyURL.app;
+
+			$scope.init = function () {
+				urly.analytics({
+					shortUrl: $routeParams.shortUrl
+				}, function (err, data) {
+					$scope.analytics = data;
+				});
 			};
 
 			$scope.init();
