@@ -5,10 +5,10 @@
  * @created     :: 2014/09/20
  */
 
-define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Services'], function (angular) {
+define(['angular', 'angularValidation', 'angularValidationRule', 'angularQRcode', 'urly/Services'], function (angular) {
 	'use strict';
 
-	return angular.module('Urly.controllers', ['Urly.services', 'validation', 'validation.rule'])
+	return angular.module('Urly.controllers', ['Urly.services', 'validation', 'validation.rule', 'monospaced.qrcode'])
 
 		.controller('UrlyController', ['$scope', '$location', '$routeParams', '$injector', 'UrlyURL', 'urly', function ($scope, $location, $routeParams, $injector, UrlyURL, urly) {
 			var $validationProvider = $injector.get('$validation');
@@ -46,6 +46,7 @@ define(['angular', 'angularValidation', 'angularValidationRule', 'urly/Services'
 		.controller('StatsController', ['$scope', '$routeParams', 'UrlyURL', 'urly', function ($scope, $routeParams, UrlyURL, urly) {
 
 			$scope.baseUrl = UrlyURL.app;
+			$scope.shortUrl = $routeParams.shortUrl;
 
 			$scope.init = function () {
 				urly.analytics({

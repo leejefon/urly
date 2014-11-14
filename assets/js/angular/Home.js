@@ -11,11 +11,13 @@ require.config({
         jquery: '../vendor/jquery/dist/jquery',
         bootstrap: '../vendor/bootstrap/dist/js/bootstrap',
         toastr: '../vendor/toastr/toastr',
+        qrcode: '../vendor/qrcode-generator/js/qrcode',
 
         angular: '../vendor/angular/angular',
         angularCookies: '../vendor/angular-cookies/angular-cookies',
         angularRoute: '../vendor/angular-route/angular-route',
         angularLoadingBar: '../vendor/angular-loading-bar/build/loading-bar',
+        angularQRcode: '../vendor/angular-qrcode/qrcode',
         angularValidation: '../vendor/angular-validation/dist/angular-validation',
         angularValidationRule: '../vendor/angular-validation/dist/angular-validation-rule',
     },
@@ -27,7 +29,8 @@ require.config({
         angular: { exports: 'angular', deps: ['jquery'] },
         angularCookies: ['angular'],
         angularRoute: ['angular'],
-        angularLoadingBar: ['angular']
+        angularLoadingBar: ['angular'],
+        angularQRcode: ['angular', 'qrcode']
     }
 });
 
