@@ -1,6 +1,8 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "URLy",
+  "description": "Yet another URL shortener",
+  "author": "Jeff Lee",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf node_modules doc dist && npm cache clean",
